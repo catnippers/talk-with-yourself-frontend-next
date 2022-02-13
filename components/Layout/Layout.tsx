@@ -13,14 +13,16 @@ type LayoutProps = {
 };
 
 export const Layout = memo<LayoutProps>(
-  ({ title, headerTitle, titleTemplate = defaultTitleTemplate, description }) => {
+  ({ children, title, headerTitle, titleTemplate = defaultTitleTemplate, description }) => {
     return (
       <div className={styles.content}>
-        <header className={styles.title}>
+        <header className={styles.header_content}>
           <h1 className={styles.title}>{headerTitle}</h1>
           <p>{description}</p>
+          <div className={styles.bar} />
         </header>
-        <div className={styles.bar} />
+
+        {children}
         <NextSeo
           title={title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4)}
           openGraph={{
