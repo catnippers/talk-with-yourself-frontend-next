@@ -1,13 +1,35 @@
+import { memo } from 'react';
+import { NextSeo } from 'next-seo';
 import styles from './Layout.module.scss';
 
-export const Layout = () => {
-  return (
-    <div className={styles.content}>
-      <header className={styles.cos}>
-        <h1 className={styles.title}>TALK WITH YOURSELF</h1>
-        <p>Self-Therapy Journal</p>
-      </header>
-      <div className={styles.bar} />
-    </div>
-  );
+import { titleTemplate as defaultTitleTemplate } from '../../pages/_app';
+
+type LayoutProps = {
+  readonly children: React.ReactNode;
+  readonly title?: string;
+  readonly headerTitle?: string;
+  readonly titleTemplate?: string;
+  readonly description?: string;
 };
+
+export const Layout = memo<LayoutProps>(
+  ({ title, headerTitle, titleTemplate = defaultTitleTemplate, description }) => {
+    return (
+      <div className={styles.content}>
+        <header className={styles.title}>
+          <h1 className={styles.title}>{headerTitle}</h1>
+          <p>{description}</p>
+        </header>
+        <div className={styles.bar} />
+        <NextSeo
+          title={title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4)}
+          openGraph={{
+            title: title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4),
+          }}
+        />
+      </div>
+    );
+  },
+);
+
+Layout.displayName = 'Layout';
