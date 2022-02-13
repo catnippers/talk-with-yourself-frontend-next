@@ -1,4 +1,14 @@
+@import '../../styles/_mixins';
+
 .content {
+  @include flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.header_content {
   width: 100vw;
   display: flex;
   flex-direction: column;
