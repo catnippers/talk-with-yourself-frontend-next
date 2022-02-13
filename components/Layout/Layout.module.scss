@@ -1,0 +1,16 @@
+.content {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fff2c6;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.bar {
+  background: linear-gradient(to right, #fff2c6, rgba(148, 221, 248, 0.781));
+  height: 0.4em;
+}
