@@ -1,0 +1,51 @@
+$borderRadius: 10px;
+$constantPageHeight: 25em;
+$constantPageWidth: 30%;
+
+$firstColor: #fff2c6;
+
+$secondColor: #d1ece9;
+
+* {
+  margin: 0;
+}
+
+button {
+  border: none;
+  background-color: $firstColor;
+}
+
+button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.emotion {
+  min-width: 15%;
+  text-align: center;
+  margin-right: 1%;
+  margin-bottom: 0.2em;
+  border-radius: 10px;
+  padding: 1%;
+}
+
+.emotion_cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow-y: scroll;
+  font-size: 11px;
+}
+
+.emotion_cards::-webkit-scrollbar {
+  width: 4px;
+}
+
+.emotion_cards::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgb(197, 197, 197);
+}
+
+.emotion_cards::-webkit-scrollbar-thumb {
+  background-color: $firstColor;
+  border-radius: 10px;
+}
