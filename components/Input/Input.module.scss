@@ -1,0 +1,49 @@
+@import '../../styles/_mixins';
+
+.field {
+  margin-bottom: 1.2rem;
+  font-size: 0.75rem;
+  max-width: 26.8rem;
+  width: 100%;
+  @include flex;
+  flex-flow: column wrap;
+}
+
+.wrapper {
+  position: relative;
+  border-radius: 15px;
+  width: 82%;
+  display: block;
+  margin: 0.2rem 0;
+
+  .span {
+    font-family: var(--second-font);
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  a {
+    position: relative;
+    left: 173px;
+    bottom: 2px;
+    text-decoration: none;
+    color: #357870;
+    font-family: var(--secondary-font);
+    font-size: 14px;
+  }
+
+  .input {
+    width: 354px;
+    height: 48px;
+    border: 1px solid #c4bca4;
+    border-radius: 10px;
+    padding: 0 1.2rem;
+    outline: 0 none;
+  }
+}
+
+.error {
+  color: red;
+  padding: 0.2rem 2.7rem;
+  align-self: flex-start;
+}
