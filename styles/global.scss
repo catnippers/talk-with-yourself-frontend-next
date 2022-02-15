@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
   display: flex;
   justify-content: center;
