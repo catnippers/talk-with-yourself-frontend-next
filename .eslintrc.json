@@ -51,6 +51,9 @@
     "react/function-component-definition": 0,
     "no-use-before-define": 0,
     "import/no-extraneous-dependencies": 0,
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    "no-undef": 0,
+    "react/button-has-type": 0,
+    "no-useless-escape": 0
   }
 }

@@ -3,9 +3,7 @@ import type { TextInputProps } from '../../types';
 import styles from './Input.module.scss';
 
 export const Input = memo<TextInputProps>(
-  ({ type = 'text', name, error, onSubmit, value, placeholder, inputRef }) => {
-    const [inputType, setInputType] = useState(type);
-
+  ({ type = 'text', name, error, onChange, value, placeholder, inputRef }) => {
     const input = useRef<HTMLInputElement | null>(null);
 
     return (
@@ -14,11 +12,11 @@ export const Input = memo<TextInputProps>(
           <span className={styles.span}>{placeholder}</span>
           {placeholder?.includes('Password') ? <a href="#">Forgot password?</a> : null}
           <input
-            type={inputType}
+            type={type}
             name={name}
             id={name}
             value={value}
-            onSubmit={onSubmit}
+            onChange={onChange}
             ref={(e) => {
               inputRef!(e);
               input.current = e;

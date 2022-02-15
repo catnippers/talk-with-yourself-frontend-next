@@ -5,7 +5,7 @@ export type TextInputProps = {
   readonly type?: string;
   readonly name?: string;
   readonly value?: string;
-  readonly onSubmit?: (event: ChangeEvent<HTMLInputElement>) => void;
+  readonly onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   readonly inputRef?: (ref: HTMLInputElement | null) => void | Ref<HTMLInputElement | null>;
   readonly placeholder?: string;
   readonly error?: string;
