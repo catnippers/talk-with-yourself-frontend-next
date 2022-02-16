@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { inputValidation } from '../../lib/utils/consts';
 import type { UserLoginData } from '../../types';
 import styles from './LoginForm.module.scss';
-import { Input } from '../../components/Input/Input';
-import { Button } from '../../components/Button/Button';
+import { Button } from '../Button/Button';
+import { Input } from '../Input/Input';
 
 export const LoginForm = () => {
   const [isAlertOpen, setIsAlertOpen] = useState<any>(null);

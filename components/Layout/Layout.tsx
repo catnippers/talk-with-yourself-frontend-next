@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { NextSeo } from 'next-seo';
 import styles from './Layout.module.scss';
 import { Navbar } from '../Navbar/Navbar';
+import { Footer } from '../Footer/Footer';
 
 import { titleTemplate as defaultTitleTemplate } from '../../pages/_app';
 
@@ -18,15 +19,15 @@ export const Layout = memo<LayoutProps>(
     return (
       <>
         <Navbar />
-        <div className={styles.content}>
-          {children}
-          <NextSeo
-            title={title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4)}
-            openGraph={{
-              title: title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4),
-            }}
-          />
-        </div>
+
+        <div className={styles.content}>{children}</div>
+        <Footer />
+        <NextSeo
+          title={title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4)}
+          openGraph={{
+            title: title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4),
+          }}
+        />
       </>
     );
   },

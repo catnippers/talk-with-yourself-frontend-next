@@ -1,9 +1,11 @@
 @import '../../styles/_mixins';
 
 .login {
-  min-height: 80vh;
+  min-height: 90vh;
   width: 100%;
-  @include flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-flow: column wrap;
   .form {
     width: 100%;
