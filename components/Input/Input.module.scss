@@ -2,35 +2,18 @@
 
 .field {
   margin-bottom: 1.2rem;
-  font-size: 0.75rem;
   max-width: 26.8rem;
   width: 100%;
-  @include flex;
   flex-flow: column wrap;
 }
 
 .wrapper {
-  position: relative;
   border-radius: 15px;
-  width: 82%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0.2rem 0;
-
-  .span {
-    font-family: var(--second-font);
-    font-size: 14px;
-    line-height: 30px;
-  }
-
-  a {
-    position: relative;
-    left: 173px;
-    bottom: 2px;
-    text-decoration: none;
-    color: #357870;
-    font-family: var(--secondary-font);
-    font-size: 14px;
-  }
 
   .input {
     width: 354px;
@@ -39,6 +22,26 @@
     border-radius: 10px;
     padding: 0 1.2rem;
     outline: 0 none;
+  }
+}
+
+.placeholder {
+  display: flex;
+  justify-content: space-arou;
+  width: 354px;
+  span {
+    font-family: var(--second-font);
+    font-size: 14px;
+    line-height: 25px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #357870;
+    font-family: var(--secondary-font);
+    font-size: 14px;
+    width: 83%;
+    text-align: right;
   }
 }
 

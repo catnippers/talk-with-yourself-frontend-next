@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from 'react';
+import { memo, useRef } from 'react';
 import type { TextInputProps } from '../../types';
 import styles from './Input.module.scss';
 
@@ -9,8 +9,10 @@ export const Input = memo<TextInputProps>(
     return (
       <div className={styles.field}>
         <label htmlFor={name} className={styles.wrapper}>
-          <span className={styles.span}>{placeholder}</span>
-          {placeholder?.includes('Password') ? <a href="#">Forgot password?</a> : null}
+          <div className={styles.placeholder}>
+            <span>{placeholder}</span>
+            {placeholder?.includes('Password') ? <a href="#">Forgot password?</a> : null}
+          </div>
           <input
             type={type}
             name={name}
