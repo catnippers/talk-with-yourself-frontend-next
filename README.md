@@ -1,6 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Talk With Yourself | Self-therapy Journal (Frontend)
 
-## Getting Started
+## Created by Catnippers Social Club
+
+### Developoment Team
+
+Frontend Lead Developer | QA Lead: Tomasz Buga (kontakt@tomaszbuga.pl)
+
+Fullstack Developer: Daniel Ekara (daniel.ekara@outlook.com)
+
+Frontend Developer: Kacper Zieliński (kacperzielinski.primary@gmail.com)
+
+### Links
+
+GitHub: https://github.com/catnippers
+
+LinkedIn: https://www.linkedin.com/company/79745129
+
+## Tech Stack
+
+`TypeScript` - Programming Language
+
+`React` - JavaScript (and TypeScript) Framework
+
+`Next.js` - Open-Source React Framework
+
+`Yarn` - Package Manager
+
+## Getting started
+### Prerequisites
+
+`NodeJS` (https://nodejs.org/en/)
+
+`Docker Desktop` (https://www.docker.com/products/docker-desktop)
+
+### Clone the project repository and install node_modules
+Launch `Terminal.app` and navigate (using `cd` command) to directory, where you'd like to store your copy of the source code
+
+Use the `git clone https://github.com/Catnippers-Social-Club/gighub-frontend.git` command to clone the repository to your local directory
+
+#Development Notes
 
 First, run the development server:
 
