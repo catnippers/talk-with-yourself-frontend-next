@@ -3,21 +3,19 @@
 .content {
   @include flex;
   flex-flow: column wrap;
-  justify-content: flex-start;
   width: 100vw;
   min-height: 100vh;
 }
 
 .header_content {
   width: 100vw;
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  background-color: #fff2c6;
-}
+  background-color: var(--primary-yellow);
+  line-height: 15px;
 
-.title {
-  font-weight: 500;
+  h1 {
+    font-weight: 500;
+  }
 }
 
 .bar {

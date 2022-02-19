@@ -1,7 +1,6 @@
-import '../styles/global.scss';
+import '../styles/main.scss';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
-import Head from 'next/head';
 
 const meta = {
   title: 'TALK WITH YOURSELF',
