@@ -4,6 +4,7 @@
   @include flex;
   flex-flow: column wrap;
   width: 100vw;
+<<<<<<< HEAD
   min-height: 100vh;
 }
 
@@ -16,9 +17,10 @@
   h1 {
     font-weight: 500;
   }
+=======
+>>>>>>> fdc1f7c9b5980b5860433f5f2823b113dd095ed2
 }
 
 .bar {
-  background: linear-gradient(to right, #fff2c6, rgba(148, 221, 248, 0.781));
-  height: 0.4em;
+  background-color: #fff2c6;
 }
