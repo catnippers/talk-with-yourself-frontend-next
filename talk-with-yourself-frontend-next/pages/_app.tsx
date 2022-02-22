@@ -1,6 +1,9 @@
 import '../styles/main.scss';
-import type { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import { createWrapper } from 'next-redux-wrapper';
 import { DefaultSeo } from 'next-seo';
+import type { AppProps } from 'next/app';
+import { store } from '../store';
 
 const meta = {
   title: 'TALK WITH YOURSELF',
@@ -22,9 +25,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           description: meta.description,
         }}
       />
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }
+const makestore = () => store;
+const wrapper = createWrapper(makestore);
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

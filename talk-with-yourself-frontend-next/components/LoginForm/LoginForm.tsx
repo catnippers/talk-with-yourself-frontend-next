@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { BiX } from 'react-icons/bi';
 import { useState } from 'react';
 import { inputValidation } from '../../lib/utils/consts';
-import type { UserLoginData } from '../../types';
+import type { UserLoginData } from '../../../types';
 import styles from './LoginForm.module.scss';
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';

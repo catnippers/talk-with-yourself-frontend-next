@@ -16,8 +16,3 @@ export type PasswordInputProps = {
   readonly inputRef: Ref<HTMLInputElement>;
   readonly error: { message: string };
 };
-
-export type UserLoginData = {
-  readonly email: string;
-  readonly password: string;
-};

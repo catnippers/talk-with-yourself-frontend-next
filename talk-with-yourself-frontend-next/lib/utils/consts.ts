@@ -1,4 +1,5 @@
-const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+const PASSWORD_REGEX =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 const EMAIL_REGEX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
 
 export const inputValidation = {
@@ -6,14 +7,15 @@ export const inputValidation = {
     required: { value: true, message: 'Email is required.' },
     pattern: {
       value: EMAIL_REGEX,
-      message: 'Incorrect username or password.',
+      message: 'Email must be a valid email.',
     },
   },
   password: {
     required: { value: true, message: 'Password is required.' },
     pattern: {
       value: PASSWORD_REGEX,
-      message: 'Incorrect username or password.',
+      message:
+        'Password must contain an uppercase letter, a special character, a number and must be at least 8 characters long.',
     },
   },
   other: {
