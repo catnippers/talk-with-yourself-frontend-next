@@ -1,14 +1,14 @@
-import dotenv from "dotenv";
-dotenv.config({ path: ".env" });
-
+import "dotenv-safe/config";
 import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import users from "./routes/userRoutes";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("is okay :D");
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.listen(process.env.PORT, () =>
-  console.log(`Server listening on PORT ${process.env.PORT}`)
-);
+app.use("/api/users", users);
+
+app.listen(process.env.PORT);
