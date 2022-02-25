@@ -4,6 +4,21 @@
   @include flex;
   flex-flow: column wrap;
   width: 100vw;
+<<<<<<< HEAD
+  min-height: 100vh;
+}
+
+.header_content {
+  width: 100vw;
+  text-align: center;
+  background-color: var(--primary-yellow);
+  line-height: 15px;
+
+  h1 {
+    font-weight: 500;
+  }
+=======
+>>>>>>> fdc1f7c9b5980b5860433f5f2823b113dd095ed2
 }
 
 .bar {

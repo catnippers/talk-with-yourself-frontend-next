@@ -17,10 +17,18 @@
     "node-sass": "6.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+<<<<<<< HEAD
+    "react-hook-form": "^7.27.0"
+=======
     "react-hook-form": "6.15.1",
+<<<<<<< HEAD:talk-with-yourself-frontend-next/package.json
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",
     "redux-thunk": "^2.4.1"
+=======
+    "react-icons": "^4.3.1"
+>>>>>>> fdc1f7c9b5980b5860433f5f2823b113dd095ed2
+>>>>>>> b4667f4c169e1ecddb440615169837563a782253:package.json
   },
   "devDependencies": {
     "@types/node": "17.0.17",

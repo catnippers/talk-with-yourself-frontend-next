@@ -7,15 +7,32 @@ export const inputValidation = {
     required: { value: true, message: 'Email is required.' },
     pattern: {
       value: EMAIL_REGEX,
+<<<<<<< HEAD:talk-with-yourself-frontend-next/lib/utils/consts.ts
       message: 'Email must be a valid email.',
+=======
+<<<<<<< HEAD
+      message: 'Email must be a valid email.',
+=======
+      message: 'Incorrect username or password.',
+>>>>>>> fdc1f7c9b5980b5860433f5f2823b113dd095ed2
+>>>>>>> b4667f4c169e1ecddb440615169837563a782253:lib/utils/consts.ts
     },
   },
   password: {
     required: { value: true, message: 'Password is required.' },
     pattern: {
       value: PASSWORD_REGEX,
+<<<<<<< HEAD:talk-with-yourself-frontend-next/lib/utils/consts.ts
       message:
         'Password must contain an uppercase letter, a special character, a number and must be at least 8 characters long.',
+=======
+<<<<<<< HEAD
+      message:
+        'Password must contain an uppercase letter, a special character, a number and must be at least 8 characters long.',
+=======
+      message: 'Incorrect username or password.',
+>>>>>>> fdc1f7c9b5980b5860433f5f2823b113dd095ed2
+>>>>>>> b4667f4c169e1ecddb440615169837563a782253:lib/utils/consts.ts
     },
   },
   other: {
