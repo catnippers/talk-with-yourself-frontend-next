@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 import { createUser, findUserByEmail } from "../services/userServices";
 import { passwordRegex } from "../../validationSchemas";
 
+// something
+
 export const login = async (req: Request, res: Response) => {
   const user = await findUserByEmail(req.body.email);
 
