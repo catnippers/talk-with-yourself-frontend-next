@@ -1,26 +1,14 @@
-import { memo, useRef, useState } from 'react';
+import { memo, useRef } from 'react';
 import type { TextInputProps } from '../../types';
 import styles from './Input.module.scss';
 
 export const Input = memo<TextInputProps>(
-  ({
-    type = 'text',
-    name,
-    error,
-    onChange,
-    value,
-    placeholder,
-    shouldBeFocused = false,
-    inputRef,
-  }) => {
-    const [isInputFocused, setIsInputFocused] = useState(shouldBeFocused);
-
+  ({ type = 'text', name, error, onChange, value, placeholder, inputRef }) => {
     const input = useRef<HTMLInputElement | null>(null);
 
     return (
       <div className={styles.field}>
         <label htmlFor={name} className={styles.wrapper}>
-          <span className={styles.span}>{placeholder}</span>
           <div className={styles.placeholder}>
             <span>{placeholder}</span>
             {placeholder?.includes('Password') ? (
@@ -33,17 +21,14 @@ export const Input = memo<TextInputProps>(
             id={name}
             value={value}
             onChange={onChange}
-            className={styles.input}
-            onFocus={() => setIsInputFocused(true)}
-            onBlur={() => setIsInputFocused(false)}
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck="false"
-            autoComplete={type === 'password' ? 'off' : 'on'}
             ref={(e) => {
               inputRef!(e);
               input.current = e;
             }}
+            className={styles.input}
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
           />
         </label>
         {error ? <span className={styles.error}>{error}</span> : null}
