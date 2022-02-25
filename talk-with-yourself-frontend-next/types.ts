@@ -5,8 +5,11 @@ export type TextInputProps = {
   readonly type?: string;
   readonly name?: string;
   readonly value?: string;
+  // eslint-disable-next-line no-unused-vars
   readonly onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  readonly inputRef?: (ref: HTMLInputElement | null) => void | Ref<HTMLInputElement | null>;
+  readonly inputRef?: (
+    ref: HTMLInputElement | null,
+  ) => void | Ref<HTMLInputElement | null>;
   readonly placeholder?: string;
   readonly error?: string;
   readonly shouldBeFocused?: boolean;
@@ -15,4 +18,9 @@ export type TextInputProps = {
 export type PasswordInputProps = {
   readonly inputRef: Ref<HTMLInputElement>;
   readonly error: { message: string };
+};
+
+export type UserLoginData = {
+  readonly email: string;
+  readonly password: string;
 };
