@@ -14,6 +14,6 @@ export function catchAsync(fn: Function) {
 
 export function catchErrors(err: httpException, req: Request, res: Response, next: NextFunction) {
   res.status(err.status || 500);
-  res.json({ message: err.message });
-  console.log(err.status, err.message);
+  res.json({ message: err.message || "Oops! Błąd!" });
+  console.log(err);
 }
