@@ -17,12 +17,28 @@ import type { InitialMainState } from '../../store/mainSlice';
 type FuncType = ThunkAction<void, InitialMainState, unknown, Action<string>>;
 
 export const UserAPI = {
+  login:
+    ({ email, password }: UserLoginData): FuncType =>
+    async (dispatch) => {
+      dispatch(setLoading(true));
+      try {
+        await fetcher('/api/users/session', 'POST', {
+          email,
+          password,
+        });
+        dispatch(setIsLogin(true));
+      } catch (error) {
+        dispatch(showModal({ type: 'error', message: error.message }));
+      } finally {
+        dispatch(setLoading(false));
+      }
+    },
   register:
     ({ email, password }: UserRegisterData): FuncType =>
     async (dispatch) => {
       dispatch(setLoading(true));
       try {
-        await fetcher('/api/users/register', 'POST', {
+        await fetcher('/api/users', 'POST', {
           email,
           password,
         });
@@ -38,4 +54,12 @@ export const UserAPI = {
         dispatch(setLoading(false));
       }
     },
+  isLogin: (): FuncType => async (dispatch) => {
+    try {
+      await fetcher('/api/users/session/me', 'GET');
+      dispatch(setIsLogin(true));
+    } catch (error) {
+      console.log(error.message);
+    }
+  },
 };

@@ -1,6 +1,4 @@
 import { useForm } from 'react-hook-form';
-import { BiX } from 'react-icons/bi';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { UserAPI } from '../../lib/api/user';
 import { inputValidation } from '../../lib/utils/consts';

@@ -1,42 +1,59 @@
 import { useForm } from 'react-hook-form';
-import { BiX } from 'react-icons/bi';
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 import { inputValidation } from '../../lib/utils/consts';
 import type { UserLoginData } from '../../../types';
 import styles from './LoginForm.module.scss';
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
+import { UserAPI } from '../../lib/api/user';
+import { getLoginStatus } from '../../store/mainSlice';
 
 export const LoginForm = () => {
-  const [isAlertOpen, setIsAlertOpen] = useState<any>(null);
-
-  const { handleSubmit, errors, register } = useForm({
+  const { handleSubmit, errors, register, reset } = useForm({
     reValidateMode: 'onBlur',
   });
 
-  const handleClose = () => setIsAlertOpen(!isAlertOpen);
+  const isLogin = useSelector(getLoginStatus);
+
+  const router = useRouter();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isLogin) {
+      router.push('/');
+    }
+  }, [isLogin]);
+
+  useEffect(() => {
+    dispatch(UserAPI.isLogin());
+  }, []);
 
   const handleFormSubmit = async (data: UserLoginData) => {
-    console.log(data);
+    reset();
+    dispatch(UserAPI.login(data));
   };
 
   return (
     <main className={styles.login}>
       <h1 className={styles.h1}>Sign In</h1>
 
-      {Object.keys(errors).length > 0 && !isAlertOpen ? (
+      {/* {Object.keys(errors).length > 0 && !isAlertOpen ? (
         <div className={styles.alert}>
           <p>Incorrect username or password</p>
           <button onClick={handleClose}>
             <BiX />
           </button>
         </div>
-      ) : null}
+      ) : null} */}
 
       <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
         <Input
           name="email"
           placeholder="Username or email address"
+          error={errors.email?.message}
           inputRef={register(inputValidation.email)}
         />
 
@@ -44,6 +61,7 @@ export const LoginForm = () => {
           name="password"
           placeholder="Password"
           type="password"
+          error={errors.password?.message}
           inputRef={register(inputValidation.password)}
         />
 

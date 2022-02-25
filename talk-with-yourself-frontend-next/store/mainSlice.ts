@@ -49,8 +49,10 @@ export const slice = createSlice({
   },
 });
 
-export const { setLoading, showModal, hideModal, setIsLogin, setUser } = slice.actions;
+export const { setLoading, showModal, hideModal, setIsLogin, setUser } =
+  slice.actions;
 
 export const getUser = (state: InitialMainState) => state.main.user;
+export const getLoginStatus = (state: InitialMainState) => state.main.isLogIn;
 
 export const mainReducer = slice.reducer;
