@@ -1,9 +1,16 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import { createUser, findUserByEmail } from "../services/userServices";
+import crypto from "crypto";
+import {
+  activateUser,
+  addUserToken,
+  createUser,
+  findUserByEmail,
+  findUserByToken,
+} from "../services/userServices";
 import { passwordRegex } from "../../validationSchemas";
-
-// something
+import { sendEmail } from "../../middlewares/sendEmail";
+import { mailOptions } from "../../constants";
 
 export const login = async (req: Request, res: Response) => {
   const user = await findUserByEmail(req.body.email);
@@ -16,6 +23,10 @@ export const login = async (req: Request, res: Response) => {
 
   if (!validPassword) {
     return res.status(401).json({ message: "Incorrect login or password." });
+  }
+
+  if (!user.isActive) {
+    return res.status(400).json({ message: "Active your account!" });
   }
 
   req.session.isLogged = true;
@@ -39,9 +50,41 @@ export const register = async (req: Request, res: Response) => {
 
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-  const user = await createUser(req.body.email, hashedPassword);
+  const token = crypto.randomBytes(16).toString("hex");
 
-  res.status(201).json(user);
+  const data = {
+    email: req.body.email,
+    subject: mailOptions.activate.subject,
+    html: mailOptions.activate.html(req.body.email, token),
+  };
+
+  try {
+    await sendEmail(data);
+    const user = await createUser(req.body.email, hashedPassword);
+    await addUserToken(user.id, token);
+    return res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({ message: "Oops, something went wrong, try again." });
+  }
+};
+
+export const activateAccount = async (req: Request, res: Response) => {
+  const user = await findUserByToken(req.body.token);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found." });
+  }
+
+  if (user.isActive) {
+    return res
+      .status(400)
+      .json({ message: "Your account has already been activated, please log in!" });
+  }
+
+  await activateUser(user.id);
+
+  res.status(200).json({ message: "Your account has been activated!" });
 };
 
 export const logout = (req: Request, res: Response) => {
@@ -51,7 +94,7 @@ export const logout = (req: Request, res: Response) => {
 };
 
 export const checkLoginStatus = (req: Request, res: Response) => {
-  res.status(200).json({ message: "Status: zalogowany." });
+  res.status(200).json({ message: "Status: logged in!" });
 };
 
 export const getUserInfo = async (req: Request, res: Response) => {
