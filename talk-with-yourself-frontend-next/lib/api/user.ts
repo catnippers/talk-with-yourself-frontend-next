@@ -45,7 +45,7 @@ export const UserAPI = {
         dispatch(
           showModal({
             type: 'success',
-            message: 'Thanks to register. Log in!',
+            message: 'An e-mail with an activation link was sent.',
           }),
         );
       } catch (error) {
@@ -62,4 +62,23 @@ export const UserAPI = {
       console.log(error.message);
     }
   },
+  activateAccount:
+    (token: string): FuncType =>
+    async (dispatch) => {
+      dispatch(setIsLogin(true));
+      try {
+        const { data }: { data: { message: string } } = await fetcher(
+          '/api/users/activate',
+          'POST',
+          {
+            token,
+          },
+        );
+        dispatch(showModal({ type: 'success', message: data.message }));
+      } catch (error) {
+        dispatch(showModal({ type: 'error', message: error.message }));
+      } finally {
+        dispatch(setLoading(false));
+      }
+    },
 };

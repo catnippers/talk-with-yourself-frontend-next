@@ -1,10 +1,13 @@
-import type { NextPage } from 'next';
+import { AuthChecker } from '../components/AuthChecker/AuthChecker';
+import { Layout } from '../components/Layout/Layout';
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
-    <div>
-      <h1>index</h1>
-    </div>
+    <AuthChecker>
+      <Layout title="Entries List">
+        <div>hej</div>
+      </Layout>
+    </AuthChecker>
   );
 };
 

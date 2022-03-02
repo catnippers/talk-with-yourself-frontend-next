@@ -54,5 +54,6 @@ export const { setLoading, showModal, hideModal, setIsLogin, setUser } =
 
 export const getUser = (state: InitialMainState) => state.main.user;
 export const getLoginStatus = (state: InitialMainState) => state.main.isLogIn;
+export const getModalInfo = (state: InitialMainState) => state.main.modal;
 
 export const mainReducer = slice.reducer;

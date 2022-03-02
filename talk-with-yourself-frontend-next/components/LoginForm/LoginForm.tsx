@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 import { inputValidation } from '../../lib/utils/consts';
 import type { UserLoginData } from '../../../types';
 import styles from './LoginForm.module.scss';
@@ -66,10 +67,13 @@ export const LoginForm = () => {
         />
 
         <Button text="Sign in" type="submit" />
-        <div className={styles.text}>
-          You don’t have an account yet? <a href="#">Create an account.</a>
-        </div>
       </form>
+      <section className={styles.info}>
+        <span>You don"t have account yet? </span>
+        <Link href="/auth/register">
+          <a>Create an account.</a>
+        </Link>
+      </section>
     </main>
   );
 };

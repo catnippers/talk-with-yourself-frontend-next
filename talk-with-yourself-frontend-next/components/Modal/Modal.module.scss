@@ -1,0 +1,65 @@
+@import '../../styles/_mixins';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  @include flex;
+
+  .window {
+    @include flex;
+    flex-flow: column wrap;
+    width: 85vw;
+    max-width: 30rem;
+    min-height: 18.1rem;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+    padding: 0 2.3rem 1.3rem 2.3rem;
+
+    .info {
+      font-weight: 600;
+      font-size: 1.05rem;
+      line-height: 1.45rem;
+      text-align: center;
+      padding: 1.8rem 0 1.3rem 0;
+
+      @media all and(min-width:1000px) {
+        font-size: 1.1rem;
+        padding: 1.8rem 0.65rem 1.3rem 0.65rem;
+      }
+    }
+
+    .button {
+      position: absolute;
+      bottom: 15px;
+      width: 95%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+
+      .ok {
+        border-radius: 10px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        width: 100%;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-family: var(--secondary-font);
+        background-color: var(--primary-yellow);
+        color: var(--primary-white);
+        border: 1px solid var(--primary-orange);
+        transition: 0.3s;
+
+        &:hover {
+          transition: 0.3s;
+          background-color: var(--secondary-yellow);
+        }
+      }
+    }
+  }
+}

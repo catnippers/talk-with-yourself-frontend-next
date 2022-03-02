@@ -30,18 +30,19 @@
   justify-content: space-arou;
   width: 354px;
   span {
-    font-family: var(--second-font);
+    font-family: var(--secondary-font);
     font-size: 14px;
     line-height: 25px;
   }
 
-  a {
+  p {
     text-decoration: none;
     color: #357870;
     font-family: var(--secondary-font);
     font-size: 14px;
     width: 83%;
     text-align: right;
+    cursor: pointer;
   }
 }
 
