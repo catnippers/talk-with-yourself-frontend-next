@@ -1,0 +1,39 @@
+{
+  "name": "talk-with-yourself-frontend-next",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
+    "axios": "^0.26.0",
+    "classnames": "^2.3.1",
+    "next": "12.0.10",
+    "next-redux-wrapper": "^7.0.5",
+    "next-seo": "^5.1.0",
+    "node-sass": "6.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "6.15.1",
+    "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
+    "redux-thunk": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.17",
+    "@types/react": "17.0.39",
+    "@types/react-redux": "^7.1.22",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "12.0.10",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "prettier": "^2.5.1",
+    "typescript": "4.5.5"
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../styles/_mixins';
+
+.content {
+  @include flex;
+  flex-flow: column wrap;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.header_content {
+  width: 100vw;
+  text-align: center;
+  background-color: var(--primary-yellow);
+  line-height: 15px;
+
+  h1 {
+    font-weight: 500;
+  }
+}
+
+.bar {
+  background-color: #fff2c6;
+}

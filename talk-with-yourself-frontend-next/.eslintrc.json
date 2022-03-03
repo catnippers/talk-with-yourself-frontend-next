@@ -1,0 +1,67 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/strict",
+    "airbnb",
+    "prettier",
+    "next",
+    "next/core-web-vitals"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks",
+    "jsx-a11y"
+  ],
+
+  "parserOptions": {
+    "project": "./talk-with-yourself-frontend-next/tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": 0,
+    "no-unused-vars": "warn",
+    "react/jsx-filename-extension": 0,
+    "import/extensions": 0,
+    "react/jsx-props-no-spreading": 0,
+    "import/prefer-default-export": 0,
+    "no-empty": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/no-noninteractive-tabindex": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/function-component-definition": 0,
+    "no-use-before-define": 0,
+    "import/no-extraneous-dependencies": 0,
+    "arrow-body-style": 0,
+    "no-undef": 0,
+    "react/button-has-type": 0,
+    "no-useless-escape": 0,
+    "no-param-reassign": 0,
+    "react/no-unescaped-entities": 0
+  }
+}
