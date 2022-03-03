@@ -23,15 +23,6 @@ export const RegisterForm = () => {
     <main className={styles.login}>
       <h1 className={styles.h1}>Sign Up</h1>
 
-      {/* {Object.keys(errors).length > 0 && !isAlertOpen ? (
-        <div className={styles.alert}>
-          <p>Incorrect username or password</p>
-          <button onClick={handleClose}>
-            <BiX />
-          </button>
-        </div>
-      ) : null} */}
-
       <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
         <Input
           name="email"

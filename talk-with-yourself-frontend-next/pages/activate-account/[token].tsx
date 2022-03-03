@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import { useEffect, memo } from 'react';
+import { useEffect, memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal } from '../../components/Modal/Modal';
 import { UserAPI } from '../../lib/api/user';

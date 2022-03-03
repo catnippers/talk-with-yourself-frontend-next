@@ -7,7 +7,7 @@ const Register = () => {
   const router = useRouter();
 
   const handleModalAccepted = () => {
-    router.push('/auth/register');
+    router.push('/auth/login');
   };
 
   return (

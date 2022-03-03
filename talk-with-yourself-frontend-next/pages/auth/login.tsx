@@ -5,6 +5,12 @@ import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { Modal } from '../../components/Modal/Modal';
 
 const Login = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch('/main');
+  }, []);
+
   return (
     <Layout title="Login">
       <Modal />

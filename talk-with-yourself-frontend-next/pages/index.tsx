@@ -4,9 +4,7 @@ import { Layout } from '../components/Layout/Layout';
 const Home = () => {
   return (
     <AuthChecker>
-      <Layout title="Entries List">
-        <div>hej</div>
-      </Layout>
+      <Layout>hej</Layout>
     </AuthChecker>
   );
 };
