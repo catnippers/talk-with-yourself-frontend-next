@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import { inputValidation } from '../../lib/utils/consts';
 import type { UserLoginData } from '../../../types';
@@ -9,15 +9,26 @@ import styles from './LoginForm.module.scss';
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 import { UserAPI } from '../../lib/api/user';
+import { getLoginStatus } from '../../store/mainSlice';
 
 export const LoginForm = () => {
   const { handleSubmit, errors, register, reset } = useForm({
     reValidateMode: 'onBlur',
   });
 
+  const isLogin = useSelector(getLoginStatus);
+
   const router = useRouter();
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isLogin) {
+      console.log(isLogin);
+
+      router.push('/');
+    }
+  }, [isLogin, router]);
 
   useEffect(() => {
     dispatch(UserAPI.isLogin());
@@ -26,7 +37,6 @@ export const LoginForm = () => {
   const handleFormSubmit = async (data: UserLoginData) => {
     reset();
     dispatch(UserAPI.login(data));
-    router.push('/');
   };
 
   return (
