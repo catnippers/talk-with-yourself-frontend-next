@@ -16,9 +16,9 @@ export const AuthChecker = memo<AuthCheckerProps>(({ children }) => {
     }
   }, [isUserLogin]);
 
-  if (!isUserLogin) {
-    return null;
-  }
+  // if (!isUserLogin) {
+  //   return null;
+  // }
 
   return <main>{children}</main>;
 });
