@@ -19,13 +19,16 @@ export const Layout = memo<LayoutProps>(
     return (
       <>
         <Navbar />
-
         <div className={styles.content}>{children}</div>
         <Footer />
         <NextSeo
-          title={title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4)}
+          title={
+            title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4)
+          }
           openGraph={{
-            title: title ? titleTemplate.replace('%s', title) : titleTemplate.slice(4),
+            title: title
+              ? titleTemplate.replace('%s', title)
+              : titleTemplate.slice(4),
           }}
         />
       </>

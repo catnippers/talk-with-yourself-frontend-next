@@ -7,7 +7,8 @@ export const inputValidation = {
     required: { value: true, message: 'Email is required.' },
     pattern: {
       value: EMAIL_REGEX,
-      message: 'Email must be a valid email.',
+
+      message: 'Incorrect username or password.',
     },
   },
   password: {

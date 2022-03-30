@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 import { inputValidation } from '../../lib/utils/consts';
 import type { UserLoginData } from '../../../types';
 import styles from './LoginForm.module.scss';
@@ -23,13 +24,15 @@ export const LoginForm = () => {
 
   useEffect(() => {
     if (isLogin) {
+      console.log(isLogin);
+
       router.push('/');
     }
-  }, [isLogin]);
+  }, [isLogin, router]);
 
   useEffect(() => {
     dispatch(UserAPI.isLogin());
-  }, []);
+  }, [dispatch, router]);
 
   const handleFormSubmit = async (data: UserLoginData) => {
     reset();
@@ -39,15 +42,6 @@ export const LoginForm = () => {
   return (
     <main className={styles.login}>
       <h1 className={styles.h1}>Sign In</h1>
-
-      {/* {Object.keys(errors).length > 0 && !isAlertOpen ? (
-        <div className={styles.alert}>
-          <p>Incorrect username or password</p>
-          <button onClick={handleClose}>
-            <BiX />
-          </button>
-        </div>
-      ) : null} */}
 
       <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
         <Input
@@ -66,10 +60,13 @@ export const LoginForm = () => {
         />
 
         <Button text="Sign in" type="submit" />
-        <div className={styles.text}>
-          You don’t have an account yet? <a href="#">Create an account.</a>
-        </div>
       </form>
+      <section className={styles.info}>
+        <span>You don"t have account yet? </span>
+        <Link href="/auth/register">
+          <a>Create an account.</a>
+        </Link>
+      </section>
     </main>
   );
 };

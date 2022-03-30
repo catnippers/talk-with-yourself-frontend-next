@@ -17,7 +17,13 @@
     "next",
     "next/core-web-vitals"
   ],
-  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks", "jsx-a11y"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks",
+    "jsx-a11y"
+  ],
 
   "parserOptions": {
     "project": "./talk-with-yourself-frontend-next/tsconfig.json",
@@ -55,6 +61,7 @@
     "no-undef": 0,
     "react/button-has-type": 0,
     "no-useless-escape": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "react/no-unescaped-entities": 0
   }
 }
